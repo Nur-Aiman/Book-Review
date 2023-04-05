@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Review</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Roboto', sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #4b0082;
+        background-image: linear-gradient(135deg, #4b0082, #7c3eda);
+        background-size: 200% 200%;
+        animation: gradient-animation 5s infinite linear;
+      }
+
+      h1 {
+        color: white;
+        font-weight: 300;
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 0.2em solid white;
+        animation: typewriter 4s steps(40, end) infinite,
+          blink-caret 0.75s step-end infinite;
+      }
+
+      @keyframes typewriter {
+        0%,
+        100% {
+          width: 0;
+        }
+        50% {
+          width: 25%;
+        }
+      }
+
+      @keyframes blink-caret {
+        0%,
+        100% {
+          border-color: transparent;
+        }
+        50% {
+          border-color: white;
+        }
+      }
+
+      .quote {
+        color: #e0b0ff;
+        font-size: 1.5rem;
+        font-style: italic;
+        text-align: center;
+        margin-bottom: 1.5rem;
+        max-width: 600px;
+      }
+
+      .quote-author {
+        color: #b380ff;
+        font-size: 1.1rem;
+        text-align: center;
+      }
+
+      .buttons {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .button {
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        font-weight: 700;
+        text-decoration: none;
+        color: white;
+        background-color: #4b0082;
+        border: 2px solid #e0b0ff;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .button:hover {
+        background-color: #7c3eda;
+        border-color: #b380ff;
+        transform: translateY(-5px);
+      }
+
+      @keyframes book-flip {
+        0% {
+          transform: perspective(1000px) rotateY(0);
+        }
+        50% {
+          transform: perspective(1000px) rotateY(180deg);
+        }
+        100% {
+          transform: perspective(1000px) rotateY(360deg);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="book"></div>
+    <h1>Welcome to Book Review</h1>
+    <p class="quote">“A room without books is like a body without a soul.”</p>
+    <p class="quote-author">― Marcus Tullius Cicero</p>
+    <div class="buttons">
+      <a href="/api/users/login" class="button">Login</a>
+      <a href="/api/users/signup" class="button">Register</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #4b0082;
+        }
+        
+        form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #4b0082;
+        }
+        
+        label {
+            display: block;
+            color: #4b0082;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        input {
+            display: block;
+            width: 100%;
+            padding: 0.5rem;
+            border: 2px solid #4b0082;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+            outline: none;
+        }
+        
+        input:focus {
+            border-color: #7c3eda;
+        }
+        
+        button {
+            display: block;
+            width: 100%;
+            padding: 0.5rem;
+            background-color: #4b0082;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            outline: none;
+        }
+        
+        button:hover {
+            background-color: #7c3eda;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="POST" action="/api/users/signup">
+        <h1>Signup</h1>
+        <p id="error-message" style="color: red; margin-bottom: 10px; text-align: center"></p>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+        <div style="display: flex; align-items: center">
+            <input type="checkbox" id="toggle-password" style="width: auto; margin-right: 5px" />
+            <label for="toggle-password" style="margin-bottom: 1.5rem">Show Password</label
+        >
+      </div>
+
+      <button type="submit">Sign Up</button>
+      <p style="padding-top: 20px">
+        Already have an account?
+        <a href="/api/users/login" class="login-link">Login here</a>
+      </p>
+    </form>
+  </body>
+  <script>
+    const errorMessage = '<%= error %>'
+
+    if (errorMessage) {
+      document.getElementById('error-message').innerText = errorMessage
+    }
+
+    document
+      .getElementById('toggle-password')
+      .addEventListener('change', function () {
+        const passwordInput = document.getElementById('password')
+        if (this.checked) {
+          passwordInput.type = 'text'
+        } else {
+          passwordInput.type = 'password'
+        }
+      })
+  </script>
+</html>
